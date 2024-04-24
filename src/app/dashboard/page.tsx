@@ -49,18 +49,18 @@ export default function Home() {
 
   jwt.decode
 
-  const onOpen = useStoreModal((state) => state.onOpen);
-  const isOpen = useStoreModal((state) => state.isOpen);
-
-  useEffect(() => { 
-    if (!isOpen) {
-      onOpen();
-    }
-  }, [isOpen, onOpen]);
-
-  return (
-    <div>
-
-    </div>
-  );
+//  const onOpen = useStoreModal((state) => state.onOpen);
+//  const isOpen = useStoreModal((state) => state.isOpen);
+//
+//  useEffect(() => { 
+//    if (!isOpen) {
+//      onOpen();
+//    }
+//  }, [isOpen, onOpen]);
+//
+//  return (
+//    <div>
+//
+//    </div>
+//  );
 }

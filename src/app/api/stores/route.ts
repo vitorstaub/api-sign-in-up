@@ -7,13 +7,15 @@ export async function POST( req: NextRequest, res: NextResponse){
     try {
         const body = await req.json()
 
+        const { data } = await axios.get("/api/user");
         const { name } = body
 
+        if (!data.id) {
+            return new NextResponse('Unauthorized', { status: 401 })
+        }
         if (!name) {
             return new NextResponse('Name is required', {status: 400})
         }
-
-        const { data } = await axios.get("/api/user");
 
         const store = prismaClient.store.create({
             data: {
@@ -24,7 +26,7 @@ export async function POST( req: NextRequest, res: NextResponse){
         return NextResponse.json(store)
     } catch (error) {
         console.log('STORES_POST', error);
-        return new NextResponse('Interal error', { status: 500});
+        return new NextResponse('Interal error', { status: 500 });
     }
 
 }

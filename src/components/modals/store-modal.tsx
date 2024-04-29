@@ -43,7 +43,7 @@ export const StoreModal = () => {
 
       console.log(response.data)
     } catch (error) {
-      console.log('Erro ao enviar requisição POST para /api/stores:', error)
+      console.log(error)
     } finally {
       setLoading(false)
     }
